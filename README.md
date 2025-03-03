@@ -2,6 +2,80 @@
 
 This is my study notes for Golang. It is a quick intro/guide to start with golang if you have prior programming experience.
 
+Exported names - In Go, a name is exported if it begins with a capital letter. For example, Pizza is an exported name, as is Pi, which is exported from the math package.
+Notice that the type comes after the variable name. 
+
+```
+func swap(x, y string) (string, string) {
+	return y, x
+}
+```
+
+- Go's return values may be named. If so, they are treated as variables defined at the top of the function. These names should be used to document the meaning of the return values.
+  -
+```
+    func split(sum int) (x, y int) {
+	      x = sum * 4 / 9
+	      y = sum - x
+	      return
+    }
+```
+
+- Variables with initializers: A var declaration can include initializers, one per variable, so if an initializer is present, the type can be omitted; the variable will take the type of the initializer.
+```
+var i, j int = 1, 2
+
+func main() {
+	var c, python, java = true, false, "no!"
+	fmt.Println(i, j, c, python, java)
+}
+```
+
+- Short variable declarations: Inside a function, the := short assignment statement can be used in place of a var declaration with implicit type. Outside a function, every statement begins with a keyword (var, func, and so on) and so the := construct is not available.
+```
+func main() {
+	var i, j int = 1, 2
+	k := 3
+	c, python, java := true, false, "no!"
+
+	fmt.Println(i, j, k, c, python, java)
+}
+```
+
+Code:
+```
+var (
+	ToBe   bool       = false
+	MaxInt uint64     = 1<<64 - 1
+	z      complex128 = cmplx.Sqrt(-5 + 12i)
+)
+
+func main() {
+	fmt.Printf("Type: %T Value: %v\n", ToBe, ToBe)
+	fmt.Printf("Type: %T Value: %v\n", MaxInt, MaxInt)
+	fmt.Printf("Type: %T Value: %v\n", z, z)
+}
+```
+
+Output:
+```
+Type: bool Value: false
+Type: uint64 Value: 18446744073709551615
+Type: complex128 Value: (2+3i)
+```
+
+- Unlike in C, in Go assignment between items of different type requires an explicit conversion. Try removing the float64 or uint conversions in the example and see what happens.
+```
+var x, y int = 3, 4
+	var f float64 = math.Sqrt(float64(x*x + y*y))
+	var z uint = uint(f)
+```
+
+- Constants cannot be declared using the := syntax.
+``` const Pi = 3.14 ```
+
+
+
 ## Table of content
 - [🏓Go Fundmentals](#--go-fundmentals)
   * [Notes](#notes)
