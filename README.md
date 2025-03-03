@@ -85,7 +85,41 @@ const (
 )
 ```
 
+## Looping
+- Go has only one looping construct, the `for` loop.
+```
+for i := 0; i < 10; i++ {
+		sum += i
+	}
+```
+- The init and post statements are optional.
+```
+sum := 1
+	for ; sum < 1000; {
+		sum += sum
+	}
+```
+This turns it into a loop similar to the while loop then.
+```
+sum := 1
+	for sum < 1000 {
+		sum += sum
+	}
+```
 
+- Go's if statements are like its for loops; the expression need not be surrounded by parentheses ( ) but the braces { } are required.
+```
+if x < 0 {
+		return sqrt(-x) + "i"
+	}
+```
+
+- Like for, the if statement can start with a short statement to execute before the condition. Variables declared by the statement are only in scope until the end of the if (and else).
+```
+if v := math.Pow(x, n); v < lim {
+		return v
+	}
+```
 
 ## Table of content
 - [🏓Go Fundmentals](#--go-fundmentals)
