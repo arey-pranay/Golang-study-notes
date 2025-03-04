@@ -1,7 +1,5 @@
 # Go - Golang quick intro study notes. 📝💨
 
-This is my study notes for Golang. It is a quick intro/guide to start with golang if you have prior programming experience.
-
 Exported names - In Go, a name is exported if it begins with a capital letter. For example, Pizza is an exported name, as is Pi, which is exported from the math package.
 Notice that the type comes after the variable name. 
 
@@ -85,7 +83,7 @@ const (
 )
 ```
 
-## Looping
+### Looping
 - Go has only one looping construct, the `for` loop.
 ```
 for i := 0; i < 10; i++ {
